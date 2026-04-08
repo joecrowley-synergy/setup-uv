@@ -52,7 +52,7 @@ export async function downloadVersion(
       ? checksum
       : resolveChecksum(checksum, artifact.checksum);
 
-  const mirrorUrl = rewriteToMirror(artifact.downloadUrl);
+  const mirrorUrl = undefined;
   const downloadUrl = mirrorUrl ?? artifact.downloadUrl;
   // Don't send the GitHub token to the Astral mirror.
   const downloadToken = mirrorUrl !== undefined ? undefined : githubToken;
