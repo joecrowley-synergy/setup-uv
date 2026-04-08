@@ -90972,8 +90972,6 @@ var TOOL_CACHE_NAME = "uv";
 var STATE_UV_PATH = "uv-path";
 var STATE_UV_VERSION = "uv-version";
 var VERSIONS_MANIFEST_URL = "https://raw.githubusercontent.com/astral-sh/versions/main/v1/uv.ndjson";
-var GITHUB_RELEASES_PREFIX = "https://github.com/astral-sh/uv/releases/download/";
-var ASTRAL_MIRROR_PREFIX = "https://releases.astral.sh/github/uv/releases/download/";
 
 // src/download/checksum/checksum.ts
 var crypto6 = __toESM(require("node:crypto"), 1);
@@ -95710,7 +95708,7 @@ async function downloadVersion(platform2, arch3, version3, checksum, githubToken
     );
   }
   const resolvedChecksum = manifestUrl === void 0 ? checksum : resolveChecksum(checksum, artifact.checksum);
-  const mirrorUrl = rewriteToMirror(artifact.downloadUrl);
+  const mirrorUrl = void 0;
   const downloadUrl = mirrorUrl ?? artifact.downloadUrl;
   const downloadToken = mirrorUrl !== void 0 ? void 0 : githubToken;
   try {
@@ -95740,12 +95738,6 @@ async function downloadVersion(platform2, arch3, version3, checksum, githubToken
       githubToken
     );
   }
-}
-function rewriteToMirror(url2) {
-  if (!url2.startsWith(GITHUB_RELEASES_PREFIX)) {
-    return void 0;
-  }
-  return ASTRAL_MIRROR_PREFIX + url2.slice(GITHUB_RELEASES_PREFIX.length);
 }
 async function downloadArtifact(downloadUrl, artifactName, platform2, arch3, version3, checksum, githubToken) {
   info(`Downloading uv from "${downloadUrl}" ...`);
