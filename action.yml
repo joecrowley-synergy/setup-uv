@@ -1,7 +1,7 @@
-name: "joecrowley-synergy/setup-uv"
+name: "synergy-au/setup-uv"
 description:
   "Set up your GitHub Actions workflow with a specific version of uv."
-author: "astral-sh"
+author: "synergy-au"
 inputs:
   version:
     description: "The version of uv to install e.g., `0.5.0` Defaults to the version in pyproject.toml or 'latest'."

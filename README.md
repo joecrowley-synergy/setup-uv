@@ -1,3 +1,15 @@
+# setup-uv Synergy Fork
+
+This fork has been created to allow our internal runners to be able to bypass the astral-sh mirror
+and retrieve archives directly from the trusted github.com release urls.
+
+The parameter to set to allow this is
+```
+use-mirror: true
+```
+More details on its usage is defined in [Inputs](#inputs)
+
+
 # setup-uv
 
 Set up your GitHub Actions workflow with a specific version of [uv](https://docs.astral.sh/uv/).
